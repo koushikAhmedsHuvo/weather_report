@@ -1,8 +1,9 @@
 function searchCountry() {
-  const searchInput = document.getElementById("searchInput").value;
+  const searchInput = document.getElementById('searchInput').value;
   fetch(`https://restcountries.com/v3.1/name/${searchInput}`)
     .then((response) => response.json())
     .then((data) => {
+      const countryInfoContainer = document.getElementById('countryInfo');
       if (data.length > 0) {
         const country = data[0];
         const countryInfo = `
@@ -12,13 +13,14 @@ function searchCountry() {
           <p>Region: ${country.region}</p>
           <button onclick="showWeather('${country.name.common}')">Show Weather</button>
         `;
-        document.getElementById("countryInfo").innerHTML = countryInfo;
+        countryInfoContainer.innerHTML = countryInfo;
+        countryInfoContainer.classList.add('show');
       } else {
-        document.getElementById("countryInfo").innerHTML =
-          "<p>Country not found</p>";
+        countryInfoContainer.innerHTML = '<p>Country not found</p>';
+        countryInfoContainer.classList.remove('show');
       }
     })
-    .catch((error) => console.log("Error:", error));
+    .catch((error) => console.log('Error:', error));
 }
 
 function showWeather(countryName) {
@@ -32,8 +34,8 @@ function showWeather(countryName) {
         <p>Description: ${data.weather[0].description}</p>
       `;
       document
-        .getElementById("countryInfo")
-        .insertAdjacentHTML("beforeend", weatherInfo);
+        .getElementById('countryInfo')
+        .insertAdjacentHTML('beforeend', weatherInfo);
     })
-    .catch((error) => console.log("Error:", error));
+    .catch((error) => console.log('Error:', error));
 }

@@ -4,15 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Country Information</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Country Information</h1>
-      <input type="text" id="searchInput" placeholder="Enter a country..." />
-      <button onclick="searchCountry()">Search</button>
+    <div class="main-container">
+      <div class="header">
+        <div class="container1">
+          <h1>Country Information</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contract</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="body">
+        <div class="container">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Enter a country..."
+          />
+          <button onclick="searchCountry()">Search</button>
 
-      <div id="countryInfo" class="country-info"></div>
+          <div id="countryInfo" class="country-info"></div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <div class="container">
+          <p style="color: white">&copy; 2024 Country Information App</p>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
